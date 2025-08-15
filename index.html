@@ -5,7 +5,6 @@
     <!-- SEO -->
     <!-- jquery? -->
     <!-- icons license -->
-    <!-- o mnie scrolling -->
     <!-- uczelnia do opisu? -->
     <!-- ikona? -->
     <meta charset="UTF-8" />
@@ -586,13 +585,13 @@
           <h2 class="section-title">Obszary wsparcia</h2>
           <div class="areas-grid">
             <ul>
-              <li class="services-item">Prowadzę psychoterapię zaburzeń lękowych oraz nastroju.</li>
-              <li class="services-item">Wspieram osoby posiadające problemy z utrzymaniem bądź tworzeniem relacji.</li>
-              <li class="services-item">Wspieram osoby doświadczające problemów z motywacją.</li>
-              <li class="services-item">Pracuję z osobami cierpiącymi na zaburzenia snu.</li>
-              <li class="services-item">Pracuję z osobami doświadczającymi problemów z regulacją emocji.</li>
-              <li class="services-item">Wspieram osoby zmagające się z przewlekłym stresem.</li>
-              <li class="services-item">Pracuję z osobami zmagającymi się z niską samooceną.</li>
+              <li>Prowadzę psychoterapię zaburzeń lękowych oraz nastroju.</li>
+              <li>Wspieram osoby posiadające problemy z utrzymaniem bądź tworzeniem relacji.</li>
+              <li>Wspieram osoby doświadczające problemów z motywacją.</li>
+              <li>Pracuję z osobami cierpiącymi na zaburzenia snu.</li>
+              <li>Pracuję z osobami doświadczającymi problemów z regulacją emocji.</li>
+              <li>Wspieram osoby zmagające się z przewlekłym stresem.</li>
+              <li>Pracuję z osobami zmagającymi się z niską samooceną.</li>
             </ul>
           </div>
         </div>
@@ -683,22 +682,22 @@
         });
 
         // Animate services on scroll
-        $('.services-item').each(function (index) {
+        var areasHidden = true;
+        $('.areas-grid li').each(function (index) {
           $(this).css({
             opacity: '0',
-            transform: 'translateY(30px)',
           });
         });
+        function revealAreas() {
+          if (!areasHidden) return;
 
-        $(window).scroll(function () {
-          $('.services-item').each(function (index) {
-            var elementTop = $(this).offset().top;
-            var viewportBottom = $(window).scrollTop() + $(window).height();
-
-            if (viewportBottom > elementTop + 100) {
-              var delay = index * 200;
+          const elementTop = $('.areas-grid').offset().top;
+          const viewportBottom = $(window).scrollTop() + $(window).height();
+          if (viewportBottom > elementTop + 50) {
+            areasHidden = false;
+            $('.areas-grid li').each(function (index) {
               $(this)
-                .delay(delay)
+                .delay(index * 200)
                 .animate(
                   {
                     opacity: '1',
@@ -706,9 +705,11 @@
                   600,
                 )
                 .css('transform', 'translateY(0)');
-            }
-          });
-        });
+            });
+          }
+        }
+        revealAreas();
+        $(window).scroll(revealAreas);
 
         // Form submission
         $('.contact-form').submit(function (e) {
