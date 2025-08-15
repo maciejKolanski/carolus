@@ -8,12 +8,31 @@
     <!-- button border -->
     <!-- o mnie scrolling -->
     <!-- uczelnia do opisu? -->
+    <!-- ikona? -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Psychoterapia Karol Bieńkowski</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <style>
+      /* Animations */
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -85,11 +104,6 @@
         background: linear-gradient(135deg, rgba(45, 55, 72, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
       }
 
-      .hero-content {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
       .hero-layout {
         display: grid;
         grid-template-columns: 1fr 400px;
@@ -118,7 +132,6 @@
       }
 
       .profile-image {
-        width: 100%;
         border-radius: 20px;
       }
 
@@ -151,12 +164,9 @@
       /* Sections */
       .section {
         padding: 20px 0;
+        animation: fadeInUp 2s ease forwards 0.6s;
         opacity: 0;
         transition: all 0.6s ease;
-      }
-
-      .section.visible {
-        opacity: 1;
       }
 
       .section-title {
@@ -177,12 +187,8 @@
         border-radius: 2px;
       }
 
-      .section-title-white {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+      .white {
         color: white;
-        position: relative;
       }
 
       /* about Section */
@@ -190,6 +196,7 @@
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         position: relative;
         overflow: hidden;
+        animation: fadeInUp 2s ease forwards 0.6s;
       }
 
       .about-grid {
@@ -248,37 +255,11 @@
         margin-bottom: 0;
       }
 
-      /* Credentials Section */
-      .credentials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .credential-item {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .credential-item:hover {
-        transform: translateY(-5px);
-      }
-
-      .credential-icon {
-        font-size: 2.5rem;
-        color: #2b6cb0;
-        margin-bottom: 1rem;
-      }
-
       /* Areas Section */
       .areas-grid {
         background: white;
         padding: 2rem;
-        border-radius: 15px;
+        border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
       }
@@ -402,22 +383,6 @@
         transform: translateY(-2px);
       }
 
-      /* Footer */
-      footer {
-        background: #1a365d;
-        color: white;
-        text-align: center;
-        padding: 2rem 0;
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       /* Mobile Responsiveness */
       @media (max-width: 768px) {
         .nav-links {
@@ -510,25 +475,6 @@
         left: 20%;
         animation-delay: 4s;
       }
-
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-        }
-      }
     </style>
   </head>
   <body>
@@ -545,8 +491,7 @@
         <a href="#" class="logo">Psychoterapia Karol Bieńkowski</a>
         <ul class="nav-links">
           <li><a href="#about">O mnie</a></li>
-          <li><a href="#about">Obszary wsparcia</a></li>
-          <li><a href="#credentials">Doświadczenie</a></li>
+          <li><a href="#services">Obszary wsparcia</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
       </nav>
@@ -555,23 +500,21 @@
     <main>
       <section id="home" class="hero">
         <div class="container">
-          <div class="hero-content">
-            <div class="hero-layout">
-              <div class="hero-text">
-                <p>Dzień dobry</p>
-                <p>
-                  Nazywam się Karol Bieńkowski, jestem psychologiem i&nbsp;psychoterapeutą. Pracuje w&nbsp;nurcie
-                  poznawczo-behawioralnym z&nbsp;osobami dorosłymi. Doświadczenie nabywałem podczas pracy na oddziale
-                  psychiatrycznym w&nbsp;Wojewódzkim Szpitalu Specjalistycznym w&nbsp;Legnicy, jako psycholog,
-                  a&nbsp;następnie rozpocząłem pracę jako psychoterapeuta. Obecnie kończę czteroletnią szkołę
-                  psychoterapii na Uniwersytecie SWPS i&nbsp;przygotowuję się do końcowego egzaminu.
-                </p>
-                <p>W pracy kieruję się kodeksem etyczno-zawodowym psychologa i kodeksem etycznym PTTPB.</p>
-                <a href="#contact" class="visit-btn">Umów wizytę</a>
-              </div>
-              <div class="hero-image">
-                <img src="photo.jpg" alt="Psychoterapia Karol Bieńkowski" class="profile-image" />
-              </div>
+          <div class="hero-layout">
+            <div class="hero-text">
+              <p>Dzień dobry</p>
+              <p>
+                Nazywam się Karol Bieńkowski, jestem psychologiem i&nbsp;psychoterapeutą. Pracuje w&nbsp;nurcie
+                poznawczo-behawioralnym z&nbsp;osobami dorosłymi. Doświadczenie nabywałem podczas pracy na oddziale
+                psychiatrycznym w&nbsp;Wojewódzkim Szpitalu Specjalistycznym w&nbsp;Legnicy, jako psycholog,
+                a&nbsp;następnie rozpocząłem pracę jako psychoterapeuta. Obecnie kończę czteroletnią szkołę
+                psychoterapii na Uniwersytecie SWPS i&nbsp;przygotowuję się do końcowego egzaminu.
+              </p>
+              <p>W pracy kieruję się kodeksem etyczno-zawodowym psychologa i kodeksem etycznym PTTPB.</p>
+              <a href="#contact" class="visit-btn">Umów wizytę</a>
+            </div>
+            <div class="hero-image">
+              <img src="photo.jpg" alt="Psychoterapia Karol Bieńkowski" class="profile-image" />
             </div>
           </div>
         </div>
@@ -637,52 +580,21 @@
           <h2 class="section-title">Obszary wsparcia</h2>
           <div class="areas-grid">
             <ul>
-              <li>Prowadzę psychoterapię zaburzeń lękowych oraz nastroju.</li>
-              <li>Wspieram osoby posiadające problemy z utrzymaniem bądź tworzeniem relacji.</li>
-              <li>Wspieram osoby doświadczające problemów z motywacją.</li>
-              <li>Pracuję z osobami cierpiącymi na zaburzenia snu.</li>
-              <li>Pracuję z osobami doświadczającymi problemów z regulacją emocji.</li>
-              <li>Wspieram osoby zmagające się z przewlekłym stresem.</li>
-              <li>Pracuję z osobami zmagającymi się z niską samooceną.</li>
+              <li class="services-item">Prowadzę psychoterapię zaburzeń lękowych oraz nastroju.</li>
+              <li class="services-item">Wspieram osoby posiadające problemy z utrzymaniem bądź tworzeniem relacji.</li>
+              <li class="services-item">Wspieram osoby doświadczające problemów z motywacją.</li>
+              <li class="services-item">Pracuję z osobami cierpiącymi na zaburzenia snu.</li>
+              <li class="services-item">Pracuję z osobami doświadczającymi problemów z regulacją emocji.</li>
+              <li class="services-item">Wspieram osoby zmagające się z przewlekłym stresem.</li>
+              <li class="services-item">Pracuję z osobami zmagającymi się z niską samooceną.</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="credentials" class="section">
-        <div class="container">
-          <h2 class="section-title">Doświadczenie</h2>
-          <div class="credentials-grid">
-            <div class="credential-item">
-              <div class="credential-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <h3>Wykształcenie</h3>
-              <p>Psychologia<br />Uniwersystet SWPS</p>
-            </div>
-
-            <div class="credential-item">
-              <div class="credential-icon">
-                <i class="fas fa-certificate"></i>
-              </div>
-              <h3>Licencja</h3>
-              <p>Szkoła Psychoterapii Poznawczo-Behawioralnej Uniwersytetu SWPS</p>
-            </div>
-
-            <div class="credential-item">
-              <div class="credential-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <h3>Doświadcznie</h3>
-              <p>Praca w szpitalu</p>
-            </div>
           </div>
         </div>
       </section>
 
       <section id="contact" class="section contact">
         <div class="container">
-          <h2 class="section-title-white">Kontakt</h2>
+          <h2 class="section-title white">Kontakt</h2>
           <div class="contact-content">
             <div class="contact-info">
               <p style="margin-bottom: 2rem">
@@ -769,22 +681,50 @@
           $('.scroll-progress').css('width', progress + '%');
         });
 
-        // Reveal sections on scroll
-        function revealSections() {
-          $('.section').each(function () {
-            var elementTop = $(this).offset().top;
-            var elementBottom = elementTop + $(this).outerHeight();
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
+        // // Reveal sections on scroll
+        // function revealSections() {
+        //   $('.section').each(function () {
+        //     var elementTop = $(this).offset().top;
+        //     var elementBottom = elementTop + $(this).outerHeight();
+        //     var viewportTop = $(window).scrollTop();
+        //     var viewportBottom = viewportTop + $(window).height();
 
-            if (elementBottom > viewportTop && elementTop < viewportBottom) {
-              $(this).addClass('visible');
+        //     if (elementBottom > viewportTop && elementTop < viewportBottom) {
+        //       $(this).addClass('visible');
+        //     }
+        //   });
+        // }
+
+        // $(window).scroll(revealSections);
+        // revealSections(); // Initial check
+
+        // Animate services on scroll
+        $('.services-item').each(function (index) {
+          $(this).css({
+            opacity: '0',
+            transform: 'translateY(30px)',
+          });
+        });
+
+        $(window).scroll(function () {
+          $('.services-item').each(function (index) {
+            var elementTop = $(this).offset().top;
+            var viewportBottom = $(window).scrollTop() + $(window).height();
+
+            if (viewportBottom > elementTop + 100) {
+              var delay = index * 200;
+              $(this)
+                .delay(delay)
+                .animate(
+                  {
+                    opacity: '1',
+                  },
+                  600,
+                )
+                .css('transform', 'translateY(0)');
             }
           });
-        }
-
-        $(window).scroll(revealSections);
-        revealSections(); // Initial check
+        });
 
         // Form submission
         $('.contact-form').submit(function (e) {
@@ -812,34 +752,6 @@
               $('.submit-btn').text('Send Message').css('background', 'white').prop('disabled', false);
             }, 3000);
           }, 1000);
-        });
-
-        // Animate credentials on scroll
-        $('.credential-item').each(function (index) {
-          $(this).css({
-            opacity: '0',
-            transform: 'translateY(30px)',
-          });
-        });
-
-        $(window).scroll(function () {
-          $('.credential-item').each(function (index) {
-            var elementTop = $(this).offset().top;
-            var viewportBottom = $(window).scrollTop() + $(window).height();
-
-            if (viewportBottom > elementTop + 100) {
-              var delay = index * 200;
-              $(this)
-                .delay(delay)
-                .animate(
-                  {
-                    opacity: '1',
-                  },
-                  600,
-                )
-                .css('transform', 'translateY(0)');
-            }
-          });
         });
       });
     </script>
