@@ -3,10 +3,9 @@
   <head>
     <!-- TODO -->
     <!-- SEO -->
-    <!-- jquery? -->
     <!-- scaling -->
     <!-- uczelnia do opisu? -->
-    <!-- ikona? -->
+    <!-- ikona/logo? -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Psychoterapia Karol Bieńkowski</title>
@@ -32,8 +31,10 @@
       }
 
       :root {
-        --primary-color: #1a365d;
-        --secondary-color: #2b6cb0;
+        --primary-color: #284b63;
+        --secondary-color: #3c6e71;
+        --gray: #d9d9d9;
+        --deep-dark: #353535;
       }
 
       * {
@@ -180,7 +181,7 @@
       .section-title {
         color: var(--primary-color);
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin-bottom: 3rem;
         position: relative;
       }
@@ -190,7 +191,7 @@
         display: block;
         width: 80px;
         height: 3px;
-        background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+        background: linear-gradient(135deg, var(--gray) 0%, var(--primary-color) 100%);
         margin: 1rem auto;
         border-radius: 2px;
       }
@@ -198,7 +199,7 @@
       .section-title-white {
         color: white;
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin-bottom: 3rem;
         position: relative;
       }
@@ -219,7 +220,7 @@
         z-index: 2;
       }
 
-      .service-card {
+      .about-card {
         background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
         padding: 0.5rem 3rem 3rem 1.5rem;
         border-radius: 20px;
@@ -234,37 +235,37 @@
         overflow: hidden;
       }
 
-      .service-card:hover {
-        transform: translateY(-15px) scale(1.02);
+      .about-card:hover {
+        transform: translateY(-15px);
         cursor: default;
       }
 
       .service-icon {
         font-size: 3rem;
-        color: var(--secondary-color);
+        color: var(--primary-color);
         margin-bottom: 5px;
         text-align: center;
       }
 
-      .service-card h3 {
+      .about-card h3 {
         text-align: center;
         font-size: 1.4rem;
         margin-bottom: 1rem;
-        color: var(--primary-color);
+        color: var(--secondary-color);
         font-weight: 600;
         line-height: 1.3;
         position: relative;
       }
 
-      .service-card p {
-        color: #4a5568;
+      .about-card p {
+        color: var(--deep-dark);
         line-height: 1.7;
         margin-bottom: 1rem;
         position: relative;
         text-align: justify;
       }
 
-      .service-card p:last-child {
+      .about-card p:last-child {
         margin-bottom: 0;
       }
 
@@ -291,7 +292,7 @@
 
       .areas-grid li {
         padding: 0.5rem 0;
-        color: #4a5568;
+        color: var(--deep-dark);
         border-bottom: 1px solid #e2e8f0;
         transition: all 0.3s ease;
         cursor: default;
@@ -426,7 +427,7 @@
           position: relative;
         }
 
-        .service-card p {
+        .about-card p {
           text-align: center;
         }
 
@@ -558,7 +559,7 @@
         <div class="container">
           <h2 class="section-title">O mnie</h2>
           <div class="about-grid">
-            <div class="service-card">
+            <div class="about-card">
               <div class="service-icon">
                 <i class="fa-regular fa-compass"></i>
               </div>
@@ -572,7 +573,7 @@
                 naukowo skuteczność.
               </p>
             </div>
-            <div class="service-card">
+            <div class="about-card">
               <div class="service-icon">
                 <i class="fa-regular fa-circle-dot"></i>
               </div>
@@ -593,7 +594,7 @@
                 powoduje, prawdopodobnie będą one wracać.
               </p>
             </div>
-            <div class="service-card">
+            <div class="about-card">
               <div class="service-icon">
                 <i class="fa-regular fa-lightbulb"></i>
               </div>
@@ -643,7 +644,7 @@
 
               <p>
                 Macie Państwo możliwość odwołania wizyty bezpłatnie do 36 godzin przed terminem jej odbycia.
-                w&nbsp;przypadku późniejszego odwołania bądź niestawienia się na wizytę ponosicie Państwo 100% ceny
+                W&nbsp;przypadku późniejszego odwołania bądź niestawienia się na wizytę ponosicie Państwo 100% ceny
                 wizyty.
               </p>
             </div>
