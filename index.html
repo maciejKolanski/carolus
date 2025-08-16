@@ -503,7 +503,7 @@
 
         .credentials-grid {
           grid-template-columns: 1fr;
-          gap: 1.5rem;
+          gap: 1rem;
         }
 
         .credential-item {
@@ -899,35 +899,6 @@
         }
         revealAreas();
         $(window).scroll(revealAreas);
-
-        // Animate credentials on scroll
-        var credentialsHidden = true;
-        $('.credential-item').each(function (index) {
-          $(this).css({
-            opacity: '0',
-          });
-        });
-        function revealCredentials() {
-          if (!credentialsHidden) return;
-
-          const elementTop = $('.credentials-grid').offset().top;
-          const viewportBottom = $(window).scrollTop() + $(window).height();
-          if (viewportBottom > elementTop + 50) {
-            credentialsHidden = false;
-            $('.credential-item').each(function (index) {
-              $(this)
-                .delay(index * 200)
-                .animate(
-                  {
-                    opacity: '1',
-                  },
-                  600,
-                );
-            });
-          }
-        }
-        revealCredentials();
-        $(window).scroll(revealCredentials);
 
         // Form submission
         $('.contact-form').submit(function (e) {
