@@ -125,15 +125,7 @@
         text-align: justify;
       }
 
-      .hero-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       .hero-image .profile-image {
-        width: 450px;
-        height: 600px;
         object-fit: cover;
         box-shadow: 0 20px 60px rgba(43, 108, 176, 0.2);
         border: 6px solid white;
@@ -476,21 +468,7 @@
         }
 
         .hero-layout {
-          grid-template-columns: 1fr;
           gap: 2rem;
-        }
-
-        .hero-text {
-          order: 2;
-        }
-
-        .hero-image {
-          order: 1;
-        }
-
-        .hero-image .profile-image {
-          width: 225px;
-          height: 300px;
         }
 
         .section-title {
@@ -529,6 +507,17 @@
           text-align: center;
         }
 
+        .hero-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-text {
+          order: 2;
+        }
+
+        .hero-image {
+          order: 1;
+        }
         .logo {
           width: 100%;
         }
@@ -662,7 +651,11 @@
               </div>
             </div>
             <div class="hero-image">
-              <img src="photo.jpg" alt="Psychoterapia Karol Bieńkowski" class="profile-image" />
+              <picture>
+                <source media="(width > 840px)" srcset="photo-big.jpg" />
+                <source media="(width <= 840px)" srcset="photo-small.jpg" />
+                <img class="profile-image" src="photo-big.jpg" alt="Psychoterapia Karol Bieńkowski" />
+              </picture>
             </div>
           </div>
         </div>
